@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <button>Get data</button>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+    //TODO: instalar bootstrap para mostrar los resultados
+    //agregar las cosas de backend de gabriela para mostrar
+      const btn = document.querySelector('button');
+      btn.addEventListener('click', getData);
+      function getData(e) {
+        // $.ajax({
+        //   url: '/users',
+        //   method: 'GET',
+        //   success: function(data) {
+        //     console.log(data);
+        //   },
+
+        //   error: function(err) {
+        //     console.log('Failed');
+        //   }
+        // });
+
+        if (self.fetch) {
+          // run my fetch request here
+          fetch('/users') //'http://localhost:3000/users'
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(myJson) {
+              console.log('workss!', myJson);
+            });
+        } else {
+          // do something with XMLHttpRequest?
+        }
+      }
+    </script>
+  </body>
+</html>
